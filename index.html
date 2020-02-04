@@ -8,6 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -15,7 +16,16 @@
 </head>
 <body>
   
-
+<form action="">
+  <p>
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location">
+  </p>
+  <p>
+    <button id="add-location" class="btn-floating btn-large waves-effect waves-light red location-btn">Add</button>
+  </p>
+</form>
+<div id="saved-locations"></div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
