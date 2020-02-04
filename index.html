@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Parse Superchargers</title>
+  <title>Budget Tesla</title>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/reset.css">
@@ -12,9 +12,71 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 
+  <link rel="icon" href="./assets/images/favicon.jpg">
+
 
 </head>
 <body>
+<!-- Header -->
+<div class="container">
+    <div class="card-panel grey lighten-1 z-depth-3">
+      <div class="card-panel-image">
+        <img src="./assets/images/2615407603_35014798-3054-44cd-9632-538c423f3356.png" alt="Budget Tesla">
+      </div>
+      <div class="card-content">
+        <br>
+        <p>Effortless charger locating for the Tesla driver who needs to budget their time.</p>
+      </div>
+    </div>
+  </div>
+ </header>
+ 
+ <!-- Input -->
+  <div class="container">
+      <div class="card grey lighten-3 z-depth-2">
+        <div class="card-content">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="your current location" id="location" type="text" class="validate">
+              <label for="current location">Current location</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="radius in miles" id="radius" type="text" class="validate">
+            <label for="location">Search Radius</label>
+            <span class="helper-text">miles</span>
+          </div>
+        </div>
+        <div class="row">
+          <a class="btn red" id="search">Search</a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+<!-- Map display and list -->
+
+  <div class="container">
+    <div class="card grey lighten-3 z-depth-2">
+      <div class="card-content">
+        <div class="section">
+          Map here!
+        </div>
+        <div class="section">
+          <h5>Chargers Near You</h5>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <ul id="resultList">
+            <li>one charger</li>
+            <li>two chargers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
   
 <form action="">
   <p>
