@@ -1,4 +1,3 @@
-
 // LocalStorage ARRAY of Locations saved
 let locations = JSON.parse(localStorage.getItem('locations')) || []
 
@@ -63,3 +62,4 @@ document.addEventListener('click', event => {
   }
 })
 renderItems()
+
