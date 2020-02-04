@@ -1,3 +1,12 @@
+html {
+  font-family: 'Oswald', sans-serif;
+}
+
 body {
-  background-color: #616161;
+  background-color: #757575;
+}
+
+p {
+  font-size: large;
+  font-style: italic;
 }
