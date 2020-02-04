@@ -7,13 +7,15 @@
   <title>Budget Tesla</title>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
   <!-- reset css -->
-  <link rel="stylesheet" href="./assets/css/reset.css">
-  <!-- materialize cdns -->
+ <link rel="stylesheet" href="./assets/css/reset.css">
+  materialize cdns
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 
-<!-- Local css -->
+      <!-- Local css -->
   <link rel="icon" href="./assets/images/favicon.jpg">
 
 <!-- Mapquest cdns -->
@@ -67,7 +69,11 @@
     <div class="card grey lighten-3 z-depth-2">
       <div class="card-content">
         <div class="section">
-          Map here!
+
+          <div id="map">
+            Map here!
+          </div>
+          
         </div>
         <div class="section">
           <h5>Chargers Near You</h5>
@@ -81,7 +87,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+ 
  
   
 
@@ -89,5 +97,16 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./assets/js/app.js"></script>
+
+  <script>
+    L.mapquest.key = 'KEY';
+
+      // 'map' refers to a <div> element with the ID map
+      L.mapquest.map('map', {
+        center: [37.7749, -122.4194],
+        layers: L.mapquest.tileLayer('map'),
+        zoom: 12
+      });
+  </script>
 </body>
 </html>

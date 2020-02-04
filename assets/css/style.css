@@ -10,3 +10,8 @@ p {
   font-size: large;
   font-style: italic;
 }
+
+#map {
+  max-width: 1000px;
+  height: 800px;
+}
