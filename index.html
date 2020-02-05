@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/reset.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="icon" href="./assets/images/favicon.jpg">
@@ -36,20 +36,19 @@
       <div class="card grey lighten-3 z-depth-2">
         <div class="card-content">
           <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="your current location" id="current-location" type="text" class="validate">
-              <label for="current location">Current location</label>
+            <div class="section">
+            <h5>5 Day Weather Forecast</h5>
+            <p>Tesla drivers deserve only the best weather.</p>
+              <p>
             </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="radius in miles" id="radius" type="text" class="validate">
-            <label for="location">Search Radius</label>
-            <span class="helper-text">miles</span>
-          </div>
-        </div>
-        <div class="row">
-          <a class="btn red" id="search">Search</a>
+                <label for="location">Enter City</label>
+                <input type="text" name="city" id="city">
+              </p>
+              <p>
+                <button class="btn red" id="searchCity">Search City</button>
+              </p>
+              
+              <div id="displayWeather"></div>
         </div>
       </div>
     </div>
@@ -77,6 +76,8 @@
       </div>
     </div>
   </div>
+
+
 <!-- WILL DELETE THIS AFTER MAP IS IMPLEMENTED -->
 <form action="">
   <p>

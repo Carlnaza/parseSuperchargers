@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <form>
+            <p>
+              <label for="city">Name of City</label>
+              <input type="text" name="city" id="city">
+            </p>
+            <p>
+              <button class="btn waves-effect waves-light" id="searchCity">Search City</button>
+            </p>
+          </form>
+        </div>
+        <div class="row">
+          <div id="display" class="col s6">
+    
+          </div>
+
+        </div>
+      </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
+    <script>
+        //document.getElementById('searchCity').addEventListener('click', event =>{
+           // event.preventDefault()
+        
+           document.getElementById('searchCity').addEventListener('click', event => {
+              event.preventDefault()
+
+              fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${document.getElementById('city').value},US&units=imperial&APPID=36728452c2aa87127fe604b265bdaef9`)
+
+                .then(r => r.json())
+                .then(({ list }) => {
+
+
+
+
+                  console.log(list[0])
+                })
+            })
+
+        document.getElementById('searchCity').addEventListener('click', event => {
+          event.preventDefault()
+          fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${document.getElementById('city').value},US&units=imperial&APPID=36728452c2aa87127fe604b265bdaef9`)
+            .then(r => r.json())
+            .then(({list}) => {
+
+         document.getElementById('display').innerHTML = `
+          <div class="card">
+            ${list.[0]}
+          </div>
+        `
+              
+           console.log(main, weather)
+            })
+
+        //     document.getElementById('data').innerHTML = `
+        //   <div class="card">
+        //     ${data}
+        //   </div>
+        // `
+        //   document.getElementById('title').value = ''
+        })
+          
+      
+    
+    
+    </script>
+</body>
+</html>

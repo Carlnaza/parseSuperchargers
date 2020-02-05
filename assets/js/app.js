@@ -63,3 +63,41 @@ document.addEventListener('click', event => {
 })
 renderItems()
 
+// Weather Api call
+let listInfo = ''
+
+document.getElementById('searchCity').addEventListener('click', event => {
+  event.preventDefault()
+  fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${document.getElementById('city').value},US&units=imperial&APPID=36728452c2aa87127fe604b265bdaef9`)
+    .then(r => r.json())
+    .then(({ list }) => {
+      for (var i = 0; i < 5; i++){
+       let listInfo = list[i]
+        let weatherElem = document.createElement('div')
+        weatherElem.innerHTML = `
+        <div class="section">
+        <div class="row">
+        <div class="card light-blue lighten-5 z-depth-2 col m-2">
+          <div class="row"> Date: ${listInfo.dt_txt} </div>
+          <div class="row">Temperature: ${listInfo.main.temp}</div>
+          <div class="row">Low: ${listInfo.main.temp_min}</div>
+          <div class="row">High: ${listInfo.main.temp_max}</div>
+          <div class="row">Humidity: ${listInfo.main.humidity}</div>
+          <div class="row">Wind speed: ${listInfo.wind.speed}</div>
+          <img src=${listInfo.weather[0].icon}></img>
+          <div class="row"> ${listInfo.weather[0].description}</div>
+        </div>
+        </div>
+        `
+        document.getElementById('displayWeather').append(weatherElem)
+        
+        
+        
+        console.log(listInfo)
+      
+      }
+     
+    })
+  })
+
+
