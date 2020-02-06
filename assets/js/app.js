@@ -64,12 +64,14 @@ document.addEventListener('click', event => {
 renderItems()
 
 // Weather Api call
+
+
 document.getElementById('searchCity').addEventListener('click', event => {
   event.preventDefault()
 
-  // document.getElementById(displayWeather).innerHTML = ``
+  document.getElementById('displayWeather').innerHTML = ``
 
-  fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${document.getElementById('city').value}&APPID=e2bb961f87ee45b7f3164d336e92a97a&units=imperial`)
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${document.getElementById('city').value}&APPID=e2bb961f87ee45b7f3164d336e92a97a&units=imperial`)
     .then(r => r.json())
     .then(({ list }) => {
 
@@ -108,14 +110,11 @@ document.getElementById('searchCity').addEventListener('click', event => {
         </div>
        `
             document.getElementById('displayWeather').append(weatherElem)
-    
-          }
-          
+          } 
         })
       document.getElementById('city').value = ''
     })
-  
-})
+  })
 
 
   // < img src = "http://openweathermap.org/img/w/${listInfo.weather[0].icon}.png" >
