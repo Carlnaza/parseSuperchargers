@@ -1,6 +1,15 @@
 // NHTSA Car Query API
 let carDetailsArr = JSON.parse(localStorage.getItem('carDetailsArr')) || []
 
+const isClicked = _ => {
+  let x = document.getElementById('car-details');
+  !if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
 const renderCarDetails = _ => {
   fetch('https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/tesla?format=json')
     .then(r => r.json())
@@ -55,7 +64,6 @@ document.addEventListener('click', event => {
     carDetailsArr.push({
       car_model: event.target.value
     })
-    document.getElementById('my-car').innerHTML = ' '
     localStorage.setItem('carDetailsArr', JSON.stringify(carDetailsArr))
     renderMyCar()
   } else if (event.target.classList.contains('remove-car')) {
