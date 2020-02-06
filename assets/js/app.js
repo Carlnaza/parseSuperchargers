@@ -74,3 +74,36 @@ document.getElementById('car-details-btn').addEventListener('click', _ => {
 
 
 
+// Weather Api call
+document.getElementById('searchCity').addEventListener('click', event => {
+  event.preventDefault()
+  fetch(`http://api.weatherapi.com/v1/forecast.json?key=ea4d3d5c304c48499f2204108200502&q=${document.getElementById('city').value}&days=5`)
+    .then(r => r.json())
+    .then(({location, forecast, condition}) => {
+      for (var i = 0; i < 5; i++) {
+        let forecastInfo = forecast.forecastday[i]
+        console.log(forecastInfo)
+     
+     
+
+  let weatherElem = document.createElement('div')
+  weatherElem.innerHTML = `
+       
+        <div class="card light-blue lighten-5 z-depth-2 col m-2">
+          <div>${forecastInfo.day.maxtemp_f}</div>
+          <div>${forecastInfo.day.uv}</div>
+          
+          
+        </div>
+       
+        `
+  document.getElementById('displayWeather').append(weatherElem)
+    
+    }    
+  })
+})
+// })
+
+
+
+
