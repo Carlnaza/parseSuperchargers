@@ -75,7 +75,7 @@ document.getElementById('car-details-btn').addEventListener('click', _ => {
 
 
 // Weather Api call
-
+let weatherSavedArr = JSON.parse(localStorage.getItem('displayWeather')) || []
 
 document.getElementById('searchCity').addEventListener('click', event => {
   event.preventDefault()
@@ -100,7 +100,7 @@ document.getElementById('searchCity').addEventListener('click', event => {
             </div>
             
             <div class="col s6">
-              <h6>Date: ${weather.forecast.forecastday[i].date}</h6>
+              <h6>Date: ${moment(weather.forecast.forecastday[i].date).format('MM-DD-YYYY')}</h6>
               <h6>High: ${weather.forecast.forecastday[i].day.maxtemp_f}°</h6>
               <h6>Low: ${weather.forecast.forecastday[i].day.mintemp_f} °</h6>
               <h6>Humidity: ${weather.forecast.forecastday[i].day.avghumidity}</h6>
@@ -108,11 +108,16 @@ document.getElementById('searchCity').addEventListener('click', event => {
             </div>
           </div>
         </div>
-       `
+       `  
             document.getElementById('displayWeather').append(weatherElem)
           } 
         })
+      weatherSavedArr.push({
+          city: event.target.value
+        })
+      localStorage.setItem('weatherSavedArr', JSON.stringify(weatherSavedArr))
       document.getElementById('city').value = ' '
+      
     })
 
 
