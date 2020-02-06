@@ -13,6 +13,24 @@ p {
 
 @media only screen and (max-width: 425px) {
   #map {
-    height: 300px;
+    height: 250px;
   }
+
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#car-details-btn {
+  margin-top: 2%;
+}
+
+.remove-btn {
+  padding: 1%
+}
+
+.my-car-container {
+  margin-bottom: 1%
 }
