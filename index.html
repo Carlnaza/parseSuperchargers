@@ -4,21 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Parse Superchargers</title>
+  <title>Budget Tesla</title>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="icon" href="./assets/images/favicon.jpg">
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
 
 
 </head>
 <body>
+<!-- Header -->
+<div class="container">
+    <div class="card-panel grey lighten-1 z-depth-3">
+      <div class="card-panel-image">
+        <img src="./assets/images/2615407603_35014798-3054-44cd-9632-538c423f3356.png" alt="Budget Tesla">
+      </div>
+      <div class="card-content">
+        <br>
+        <p>Effortless charger locating for the Tesla driver who needs to budget their time.</p>
+      </div>
+    </div>
+  </div>
+ </header>
+ 
+ <!-- Input -->
+  <div id="choose-my-car" class="container">
+      <div class="card grey lighten-3 z-depth-2">
+        <di class="card-content">
+          <button id="car-details-btn" class="waves-effect waves-light btn red">Choose My Car(s)</button>
+            <ul  id="car-details" class="collection with-header">
+            </ul>
+       </div>
+    </div>
+  </div>
+
+<!-- My Car Display -->
+<div class="container">
+  <div class="card grey lighten-3 z-depth-2">
+    <div class="card-content">
+      <h5>My Car(s)</h5>
+        <div id="my-car" class="section my-car-container"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Map display and list -->
+
+  <div class="container">
+    <div class="card grey lighten-3 z-depth-2">
+      <div class="card-content">
+        <div class="section">
+          <iframe src="https://map.openchargemap.io/?mode=embedded" allow="geolocation" frameborder="0" width="100%"
+            height="500px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- WILL DELETE THIS AFTER MAP IS IMPLEMENTED -->
+<!-- <form action="">
+  <p>
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location">
+  </p>
+  <p>
+    <button id="add-location" class="btn-floating btn-large waves-effect waves-light red location-btn">Add</button>
+  </p>
+</form>
+<div id="saved-locations"></div> -->
+<!--  -->
+<footer>
   
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./assets/js/app.js"></script>
+  </script>
+  </footer>
 </body>
 </html>

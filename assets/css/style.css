@@ -1,0 +1,36 @@
+html {
+  font-family: 'Oswald', sans-serif;
+}
+
+body {
+  background-color: #757575;
+}
+
+p {
+  font-size: large;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 425px) {
+  #map {
+    height: 250px;
+  }
+
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#car-details-btn {
+  margin-top: 2%;
+}
+
+.remove-btn {
+  padding: 1%
+}
+
+.my-car-container {
+  margin-bottom: 1%
+}
