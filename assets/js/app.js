@@ -72,6 +72,16 @@ document.getElementById('car-details-btn').addEventListener('click', _ => {
   renderCarDetails()
 })
 
+// Quote of the Day API
+fetch('https://favqs.com/api/qotd')
+.then (r => r.json())
+.then (({ quote }) => {
+  console.log(quote)
+  console.log(quote.author)
+  console.log(quote.body)
+  document.getElementById('quote').textContent = `"${quote.body}"`
+  document.getElementById('author').textContent = `-${quote.author}`
+})
 
 
 // Weather Api call
