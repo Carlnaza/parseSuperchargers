@@ -17,7 +17,13 @@ p {
   }
 
 }
-
+#author {
+  color: rgb(85, 85, 85);
+  font-style: italic;
+}
+.car-model {
+  margin: 1%;
+}
 h3 {
   font-size: 14px;
   font-weight: bold;
