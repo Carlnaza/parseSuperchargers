@@ -13,4 +13,5 @@
 # APIs Used
 - Open Charge Map (MapBox)
 - NHTSA Car Query
-- WeatherAPI
+- WeatherAPI.com
+- FavQs 
