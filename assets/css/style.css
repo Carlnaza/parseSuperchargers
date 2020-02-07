@@ -6,6 +6,12 @@ body {
   background-color: #e0e0e0;
 }
 
+hr {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  opacity: 50%;
+} 
+
 p {
   font-size: large;
   font-style: italic;
