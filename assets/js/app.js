@@ -13,7 +13,7 @@ const renderCarDetails = _ => {
                     <h3>Model Name:</h3> 
                     <p>${Results[i].Model_Name}</p>
                     <a class="secondary-content">
-                    <button class="waves-effect waves-light btn car-details" value="${Results[i].Model_Name}">Save</button>
+                    <button class="waves-effect waves-light btn car-details green lighten-4 black-text" value="${Results[i].Model_Name}">Save</button>
                   </a>
                 </div>
               </li>
@@ -34,7 +34,7 @@ const renderMyCar = _ => {
     myCarDiv.innerHTML = `
     <h3>Model Name:</h3>
     <p>${carDetailsArr[i].car_model}</p>
-    <a class="secondary-content"><button class="waves-effect waves-light btn red remove-car" value="${i}">Remove</button>
+    <a class="secondary-content"><button class="waves-effect waves-light btn green lighten-4 black-text remove-car" value="${i}">Remove</button>
     </a>
     `
     document.getElementById('my-car').append(myCarDiv)
@@ -140,8 +140,16 @@ document.getElementById('searchCity').addEventListener('click', event => {
   city = JSON.parse(localStorage.getItem('city'))
   document.getElementById('displayWeather').innerHTML = ``
 
+    document.getElementById('destroy').addEventListener('click', _ => {
+      let confirmDel = confirm('Are you sure you want to delete everything?')
+      if (confirmDel === true) {
+        document.getElementById('body').innerHTML = ' '
+      }
+    })
+
   if (city) makeAJAX();
 })
+
 
 localStorage.clear();
 

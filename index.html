@@ -16,21 +16,21 @@
 
 
 </head>
-<body>
+<body  id='body'>
 <!-- Header -->
-<div class="container">
-    <div class="card-panel grey lighten-1 z-depth-3">
-      <div class="card-panel-image">
-        <img src="./assets/images/2615407603_35014798-3054-44cd-9632-538c423f3356.png" alt="Budget Tesla">
-      </div>
-      <div class="card-content">
-        <br>
-        <p>Effortless charger locating for the Tesla driver who needs to budget their time.</p>
-      </div>
+<header>
+  <nav>
+    <div class="nav-wrapper green lighten-4">
+      <img src="./assets/images/2630890167_c41caa53-8095-497a-b62a-c084b92413f5.png" class="brand-logo center logo">
     </div>
-  </div>
+    <p>Effortless charger locating for the Tesla driver who needs to budget their time.</p>
+  </nav>
  </header>
- 
+<!-- Map display and list -->
+<div>
+<iframe src="https://map.openchargemap.io/?mode=embedded" allow="geolocation" frameborder="0" width="100%"
+  height="500px"></iframe>
+</div>
  <!-- Input -->
   <div id="choose-my-car" class="container">
       <div class="card grey lighten-3 z-depth-2">
@@ -48,20 +48,18 @@
                 <input type="text" name="city" id="city">
               </p>
               <p>
-                <button class="btn red" id="searchCity">Search City</button>
-              </p>
-              
+                <button class="waves-effect waves-light btn green lighten-4 black-text" id="searchCity">Search City</button>
+              </p>       
               <div id="displayWeather"></div>
         </div>
       </div>
     </div>
   </div>
-
 <!-- My Car Display -->
 <div class="container">
   <div class="card grey lighten-3 z-depth-2">
     <div class="card-content">
-      <button id="car-details-btn" class="waves-effect waves-light btn red">Choose My Car(s)</button>
+      <button id="car-details-btn" class="waves-effect waves-light btn green lighten-4 black-text">Choose My Car(s)</button>
       <ul id="car-details" class="collection with-header">
       </ul>
     </div>
@@ -71,33 +69,9 @@
     </div>
   </div>
 </div>
-
-<!-- Map display and list -->
-
-  <div class="container">
-    <div class="card grey lighten-3 z-depth-2">
-      <div class="card-content">
-        <div class="section">
-          <iframe src="https://map.openchargemap.io/?mode=embedded" allow="geolocation" frameborder="0" width="100%"
-            height="500px"></iframe>
-        </div>
-      </div>
-    </div>
+  <div>
+    <button id="destroy" class="btn red">Delete Website</button>
   </div>
-
-
-<!-- WILL DELETE THIS AFTER MAP IS IMPLEMENTED -->
-<!-- <form action="">
-  <p>
-    <label for="location">Location</label>
-    <input type="text" name="location" id="location">
-  </p>
-  <p>
-    <button id="add-location" class="btn-floating btn-large waves-effect waves-light red location-btn">Add</button>
-  </p>
-</form>
-<div id="saved-locations"></div> -->
-<!--  -->
 <footer>
   <!-- Moment() -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
