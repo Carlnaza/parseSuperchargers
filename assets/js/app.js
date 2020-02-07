@@ -75,10 +75,17 @@ document.getElementById('car-details-btn').addEventListener('click', _ => {
 
 
 // Weather Api call
-let weatherSavedArr = JSON.parse(localStorage.getItem('displayWeather')) || []
+
 
 document.getElementById('searchCity').addEventListener('click', event => {
   event.preventDefault()
+
+    let weatherSavedArr = JSON.parse(localStorage.getItem('displayWeather')) || []
+    weatherSavedArr.push({
+          city: event.target.value
+        })
+      localStorage.setItem('weatherSavedArr', JSON.stringify(weatherSavedArr))
+      
   document.getElementById('displayWeather').innerHTML = ``
   fetch(`https://api.weatherapi.com/v1/forecast.json?key=ea4d3d5c304c48499f2204108200502&q=${document.getElementById('city').value}&days=5`)
       .then(r => r.json())
@@ -110,15 +117,15 @@ document.getElementById('searchCity').addEventListener('click', event => {
         </div>
        `  
             document.getElementById('displayWeather').append(weatherElem)
-          } 
-        })
-      weatherSavedArr.push({
-          city: event.target.value
-        })
-      localStorage.setItem('weatherSavedArr', JSON.stringify(weatherSavedArr))
+          }
+        })  
       document.getElementById('city').value = ' '
-      
     })
+   
+    
+      
+      
+  
 
 
 
