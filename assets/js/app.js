@@ -27,9 +27,9 @@ const renderCarDetails = _ => {
 
 // Renders my Car to Div
 const renderMyCar = _ => {
-  setTimeout( _ => {document.getElementById('car-details').innerHTML = ' '}, 300)
+  setTimeout(_ => { document.getElementById('car-details').innerHTML = ' ' }, 300)
   document.getElementById('my-car').innerHTML = ' '
-  for(let i = 0; i < carDetailsArr.length; i++) {
+  for (let i = 0; i < carDetailsArr.length; i++) {
     let myCarDiv = document.createElement('div')
     myCarDiv.innerHTML = `
     <h3>Model Name:</h3>
@@ -85,20 +85,28 @@ fetch('https://favqs.com/api/qotd')
 
 
 // Weather Api call
-let weatherSavedArr = JSON.parse(localStorage.getItem('displayWeather')) || []
+// localStorage.clear()
+let city = JSON.parse(localStorage.getItem('city')) || ''
 
-document.getElementById('searchCity').addEventListener('click', event => {
-  event.preventDefault()
-  document.getElementById('displayWeather').innerHTML = ``
-  fetch(`https://api.weatherapi.com/v1/forecast.json?key=ea4d3d5c304c48499f2204108200502&q=${document.getElementById('city').value}&days=5`)
-      .then(r => r.json())
-      .then(weather => {
+const makeAJAX = () => {
 
-        document.getElementById('displayWeather').innerHtml = ``
+  const URL_BASE = 'https://api.weatherapi.com/v1/forecast.json';
+  const KEY_PARAMETER = 'key=ea4d3d5c304c48499f2204108200502';
+  const DAY_COUNT_PARAMETER = 'days=5'
+  let queryURL = URL_BASE + '?' + '&' + KEY_PARAMETER + '&' + DAY_COUNT_PARAMETER;
 
-          for (var i = 0; i < 5; i++) {
-            let weatherElem = document.createElement('div')
-            weatherElem.innerHTML = `
+  let cityParameter = 'q=' + city;
+  queryURL += '&' + cityParameter;
+
+  console.log(queryURL);
+
+  fetch(queryURL)
+    .then(r => r.json())
+    .then(weather => {
+      document.getElementById('displayWeather').innerHtml = ``
+      for (var i = 0; i < 5; i++) {
+        let weatherElem = document.createElement('div')
+        weatherElem.innerHTML = `
         
         <div class="card indigo-text text-darken-4 light-blue lighten-5 z-depth-2 col s12">
         
@@ -118,18 +126,24 @@ document.getElementById('searchCity').addEventListener('click', event => {
             </div>
           </div>
         </div>
-       `  
-            document.getElementById('displayWeather').append(weatherElem)
-          } 
-        })
-      weatherSavedArr.push({
-          city: event.target.value
-        })
-      localStorage.setItem('weatherSavedArr', JSON.stringify(weatherSavedArr))
-      document.getElementById('city').value = ' '
-      
-    })
+       `
+        document.getElementById('displayWeather').append(weatherElem)
+      }
+    });
+}
 
+document.getElementById('searchCity').addEventListener('click', event => {
+  localStorage.clear();
+  let searchTerm = document.getElementById('city').value;
+  document.getElementById('city').value = ''
+  localStorage.setItem('city', JSON.stringify(searchTerm));
+  city = JSON.parse(localStorage.getItem('city'))
+  document.getElementById('displayWeather').innerHTML = ``
 
+  if (city) makeAJAX();
+})
 
+localStorage.clear();
+
+if (city) makeAJAX();
 
