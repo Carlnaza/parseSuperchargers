@@ -120,6 +120,16 @@ document.getElementById('searchCity').addEventListener('click', event => {
       
     })
 
-
+document.getElementById('free-bitcoin').addEventListener('click', () => {
+  let randNum
+  fetch('https://qrng.anu.edu.au/API/jsonI.php?length=1&type=uint16')
+    .then(r => r.json())
+    .then(res => {
+      randNum = res.data[0]
+      document.getElementById('congrats-free-bitcoin-display').textContent = 
+        `Congrats! You received ${randNum} bitcoin(s)! Check your bank account ;)`
+    })
+  
+})
 
 
