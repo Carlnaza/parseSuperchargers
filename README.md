@@ -13,10 +13,6 @@
 # APIs Used
 - Open Charge Map (MapBox)
 - NHTSA Car Query
-<<<<<<< HEAD
 - WeatherAPI.com
 - FavQs 
-=======
-- WeatherAPI
 - ANU Quantum Random Number Server
->>>>>>> 9db70803fc9e3d3b0060a844a26988c34a636394
