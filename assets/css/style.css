@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #e0e0e0;
+  background-color: #f7f7f7;
 }
 
 p {
@@ -13,7 +13,7 @@ p {
 
 .logo {
   height: 80%;
- padding-top: 10%;
+ margin-top:1%;
 }
 
 @media only screen and (max-width: 425px) {
@@ -22,7 +22,7 @@ p {
   }
 
 }
-#author {
+.author {
   color: rgb(85, 85, 85);
   font-style: italic;
 }
@@ -44,4 +44,9 @@ h3 {
 
 .my-car-container {
   margin-bottom: 1%
+}
+
+.text-result {
+  margin-top: 5%;
+  margin-bottom: 2%;
 }

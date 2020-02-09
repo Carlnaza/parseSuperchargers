@@ -8,15 +8,14 @@ const renderCarDetails = _ => {
       for (let i = 0; i < Results.length; i++) {
         let carDetailElem = document.createElement('div')
         carDetailElem.innerHTML = `
-              <li class="collection-item">
-                <div>
-                    <h3>Model Name:</h3> 
-                    <p>${Results[i].Model_Name}</p>
-                    <a class="secondary-content">
-                    <button class="waves-effect waves-light btn car-details green lighten-4 black-text" value="${Results[i].Model_Name}">Save</button>
-                  </a>
-                </div>
-              </li>
+        <li class="collection-item">
+          <div>
+            ${Results[i].Model_Name}
+            <a href="#!" class="secondary-content">
+             <i class="material-icons car-details" data-value="${Results[i].Model_Name}">add_circle_outline</i>
+            </a>
+          </div>
+        </li> 
         `
         document.getElementById('car-details').append(carDetailElem)
       }
@@ -32,10 +31,14 @@ const renderMyCar = _ => {
   for (let i = 0; i < carDetailsArr.length; i++) {
     let myCarDiv = document.createElement('div')
     myCarDiv.innerHTML = `
-    <h3>Model Name:</h3>
-    <p>${carDetailsArr[i].car_model}</p>
-    <a class="secondary-content"><button class="waves-effect waves-light btn green lighten-4 black-text remove-car" value="${i}">Remove</button>
-    </a>
+    <li class="collection-item">
+      <div>
+        ${carDetailsArr[i].car_model}
+        <a href="#!" class="secondary-content">
+         <i class="material-icons remove-car" data-value="${i}">remove_circle</i>
+        </a>
+      </div>
+    </li>
     `
     document.getElementById('my-car').append(myCarDiv)
   }
@@ -43,8 +46,6 @@ const renderMyCar = _ => {
 
 // Removes Saved Cars
 const removeMyCar = index => {
-  console.log(index)
-  console.log(carDetailsArr)
   carDetailsArr.splice(index, 1)
   localStorage.setItem('carDetailsArr', JSON.stringify(carDetailsArr))
 }
@@ -53,13 +54,13 @@ const removeMyCar = index => {
 document.addEventListener('click', event => {
   if (event.target.classList.contains('car-details')) {
     carDetailsArr.push({
-      car_model: event.target.value
+      car_model: event.target.dataset.value
     })
     document.getElementById('my-car').innerHTML = ' '
     localStorage.setItem('carDetailsArr', JSON.stringify(carDetailsArr))
     renderMyCar()
   } else if (event.target.classList.contains('remove-car')) {
-    removeMyCar(event.target.value)
+    removeMyCar(event.target.dataset.value)
     document.getElementById('my-car').innerHTML = ' '
     renderMyCar()
   }
@@ -68,19 +69,43 @@ renderMyCar()
 
 // Shows Car Details
 document.getElementById('car-details-btn').addEventListener('click', _ => {
-  console.log('ping')
   renderCarDetails()
 })
 
-// Quote of the Day API
+// Quote API
+let savedQuotes = JSON.parse(localStorage.getItem('savedQuote')) || []
+
+const renderChosenQuote = event => {
+  fetch(`https://favqs.com/api/qotd`)
+  .then ( r => r.json())
+  .then (({ quote }) => {
+    let genQuote = document.createElement('div')
+    genQuote.innerHTML = `
+      <i class="material-icons circle"></i>
+      <p>${quote.body} <br>
+      -${quote.author}
+      </p>
+    `
+    document.getElementById('ran-quote-result').append(genQuote)
+  })
+}
+
+const saveFavQuoteDiv = _ => {
+  let favQuoteDiv = document.createElement('div')
+ favQuoteDiv.id = 'fav-quote-div'
+  document.getElementById('saved-quotes').append(favQuoteDiv)
+}
+
 fetch('https://favqs.com/api/qotd')
 .then (r => r.json())
 .then (({ quote }) => {
-  console.log(quote)
-  console.log(quote.author)
-  console.log(quote.body)
   document.getElementById('quote').textContent = `"${quote.body}"`
   document.getElementById('author').textContent = `-${quote.author}`
+})
+    // Quote Btn
+document.getElementById('ran-quote').addEventListener('click', _ => {
+  document.getElementById('ran-quote-result').innerHTML = ' '
+  renderChosenQuote()
 })
 
 
@@ -155,3 +180,10 @@ localStorage.clear();
 
 if (city) makeAJAX();
 
+// Delete Website Btn
+document.getElementById('destroy').addEventListener('click', _ => {
+  let destroyConfirm = confirm('Are you sure you want to delete the website?')
+  if (destroyConfirm === true) {
+    document.getElementById('body').innerHTML = ` `
+  }
+ })
