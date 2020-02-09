@@ -180,6 +180,18 @@ localStorage.clear();
 
 if (city) makeAJAX();
 
+// RickRoll/Bitcoin Btn
+document.getElementById('free-bitcoin').addEventListener('click', () => {
+  let randNum
+  fetch('https://qrng.anu.edu.au/API/jsonI.php?length=1&type=uint16')
+    .then(r => r.json())
+    .then(res => {
+      randNum = res.data[0]
+      document.getElementById('congrats-free-bitcoin-display').textContent = 
+        `Congrats! You received ${randNum} bitcoin(s)! Check your bank account ;)`
+    })
+})
+
 // Delete Website Btn
 document.getElementById('destroy').addEventListener('click', _ => {
   let destroyConfirm = confirm('Are you sure you want to delete the website?')
