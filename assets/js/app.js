@@ -138,8 +138,8 @@ const makeAJAX = () => {
           <div class="row">
             <div class="col s6">
               <h5>${weather.location.name}, ${weather.location.region}</h5>
-              <h6>${weather.current.condition.text}</h6>
-              <img src="https:${weather.current.condition.icon}">
+              <h6>${weather.forecast.forecastday[i].day.condition.text}</h6>
+              <img src="https:${weather.forecast.forecastday[i].day.condition.icon}">
             </div>
             
             <div class="col s6">
