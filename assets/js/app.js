@@ -105,8 +105,8 @@ document.getElementById('searchCity').addEventListener('click', event => {
           <div class="row">
             <div class="col s6">
               <h5>${weather.location.name}, ${weather.location.region}</h5>
-              <h6>${weather.current.condition.text}</h6>
-              <img src="https:${weather.current.condition.icon}">
+              <h6>${weather.forecast.forecastday[i].day.condition.text}</h6>
+              <img src="https:${weather.forecast.forecastday[i].day.condition.icon}">
             </div>
             
             <div class="col s6">
@@ -119,6 +119,7 @@ document.getElementById('searchCity').addEventListener('click', event => {
           </div>
         </div>
        `  
+            console.log(weather.forecast)
             document.getElementById('displayWeather').append(weatherElem)
           } 
         })
@@ -131,5 +132,21 @@ document.getElementById('searchCity').addEventListener('click', event => {
     })
 
 
+
+
+
+// modal js
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, options);
+});
+
+// Or with jQuery
+
+// $(document).ready(function () {
+//   $('.modal').modal();
+// });
 
 
